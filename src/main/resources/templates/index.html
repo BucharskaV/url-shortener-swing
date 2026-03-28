@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TPO10</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="mb-4">TPO10</h1>
+    <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <form method="get" th:action="@{/links/show}">
+        <label class="form-label">Language</label>
+        <select name="lang" class="form-select">
+            <option value="en" th:selected="${lang == 'en'}">English</option>
+            <option value="pl" th:selected="${lang == 'pl'}">Polski</option>
+            <option value="de" th:selected="${lang == 'de'}">Deutsch</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Change Language</button>
+    </form>
+
+    <form th:action="@{/links/create}" method="post" class="mb-5" th:object="${linkDTO}">
+        <h3>Create a link</h3>
+        <div class="mb-3">
+            <p >Enter info about link to create a link (both with and without a password):</p>
+            <label class="form-label">Name:</label>
+            <input type="text" name="name" class="form-control" required/>
+            <label class="form-label mt-2" >Target URL:</label>
+            <input type="text" name="targetUrl" class="form-control" required/>
+            <label class="form-label mt-2" >Password:</label>
+            <input type="password" name="password" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-success" >Create</button>
+    </form>
+
+    <form th:action="@{/links/view}" method="get" class="mb-5">
+        <h3>View a link</h3>
+        <div class="mb-3">
+            <p >Enter the name and password of the link to view a link:</p>
+            <label class="form-label">Name:</label>
+            <input type="text" name="name" class="form-control" required/>
+            <label class="form-label mt-2" >Password:</label>
+            <input type="password" name="password" class="form-control" required/>
+        </div>
+        <button type="submit" class="btn btn-info" >View</button>
+    </form>
+
+    <form th:action="@{/links/update}" method="post" class="mb-5" th:object="${updateDTO}">
+        <h3>Update a link</h3>
+        <div class="mb-3">
+            <p >Enter info about link to update:</p>
+            <label class="form-label">Name:</label>
+            <input type="text" name="nameaccess" class="form-control" required/>
+            <label class="form-label">New Name:</label>
+            <input type="text" name="name" class="form-control" />
+            <label class="form-label mt-2" >Target URL:</label>
+            <input type="text" name="targetUrl" class="form-control"/>
+            <label class="form-label mt-2">Password:</label>
+            <input type="password" name="password" class="form-control" required/>
+        </div>
+        <button type="submit" class="btn btn-warning" >Update</button>
+    </form>
+
+    <form th:action="@{/links/delete}" method="post">
+        <h3>Delete a link</h3>
+        <div class="mb-3">
+            <p>Enter info to delete the link:</p>
+            <label class="form-label">Name:</label>
+            <input type="text" name="name" class="form-control" required/>
+            <label class="form-label">Password:</label>
+            <input type="password" name="password" class="form-control"required/>
+        </div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>
+</body>
+</html>
