@@ -11,3 +11,7 @@ The project features a Spring MVC + Thymeleaf frontend with Bootstrap. The appli
 - H2 Database
 - Spring Data JPA / Hibernate (ORM)
 - Bean Validation
+## Photos of performance 
+<img width="1762" height="746" alt="image" src="https://github.com/user-attachments/assets/1946f8b2-bced-4b80-a4b9-fc52b5ad4d35" />
+<img width="1658" height="741" alt="image" src="https://github.com/user-attachments/assets/c1f07ef7-687f-470d-a0ec-ba5180b8ccb3" />
+<img width="1657" height="553" alt="image" src="https://github.com/user-attachments/assets/fdcb7f95-0511-4bbd-8e59-146909a9055b" />
